@@ -7,13 +7,11 @@ import 'package:todo_hive/todo_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Inicializa Hive con el directorio correcto
   Directory appDocDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocDir.path);
 
   // Abre la caja de Hive
-  await Hive.openBox(
-      'contactsBox'); // Cambié a 'contactsBox' para mayor claridad
+  await Hive.openBox('Contact list');
 
   runApp(const MyApp());
 }
@@ -28,8 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          const ContactsPage(), // Asegúrate de que estás llamando a la página correcta
+      home: const ContactsPage(),
     );
   }
 }
